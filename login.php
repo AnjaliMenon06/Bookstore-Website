@@ -1,101 +1,107 @@
+<?php include('../config/constants.php');
+?>
+<html>
+    <head>
+        <title>Login - Bookstore Website</title>
+        <link rel="stylesheet" href="../css/admin.css">
+    </head>
+
+    <body>
+        <section class="admin-page">
+            <div class="login">
+                <br>
+                <h1 class="text-center">Login</h1>
+                <br>
+                <?php 
+
+                    if(isset($_SESSION['no-login-message']))
+                    {
+                        echo $_SESSION['no-login-message']; //Displaying session message: Please Log in to access Admin Panel
+                        unset($_SESSION['no-login-message']); // Removing session message
+                    }
+
+                    if(isset($_SESSION['login']))
+                    {
+                        echo $_SESSION['login']; //Displaying session message: Login successfull
+                        unset($_SESSION['login']); // Removing session message
+                    }
+
+                    
+                ?>
+
+                <br>
+                
+                <br>
+
+                <!--Login Form starts here-->
+                <form action="" method="POST" class="text-center">
+                    Username: <br>
+                    <input type="text" name="username" placeholder="Enter Your Username" class="input-responsive" required>
+                    <br>
+                    <br>
+                    Password: <br>
+                    <input type="password" name="password" placeholder="Enter Your Password" class="input-responsive" required>
+                    <br>
+                    <br>
+                    <input type="submit" name="submit" value="Login" class="btn btn-login">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                  
+                </form>
+                <!--Login Form ends here-->
+
+
+                <p class="text-center">Created By : <a href="US.html" class="btn btn-primary">Bookberries Official</a></p>
+                <br>
+            </div>
+        </section>    
+    </body>
+
+</html>
+
 <?php 
 
-session_start();
+    //Check whether the submit button is clicked or not
+    if(isset($_POST['submit']))
+    {
+        //Process the login
+        // 1. Get data from login
+        $username = $_POST['username'];
+        $password = md5($_POST['password']);
 
-	include("connection.php");
-	include("functions.php");
+        // 2. SQL Query to check whether the user with the given username and password exist or not
+        $sql= "SELECT * FROM tbl_admin WHERE username='$username' AND password='$password'";
 
+        //3. Execute the SQL query
+        $res = mysqli_query($conn,$sql);
 
-	if($_SERVER['REQUEST_METHOD'] == "POST")
-	{
-		//something was posted
-		$user_name = $_POST['user_name'];
-		$password = $_POST['password'];
+        // 4. Count rows to check whether the user exist or not
+        $count = mysqli_num_rows($res);
 
-		if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
-		{
+        //if count==1: user exist.  If count==0: user does not exist
+        if($count == 1)
+        {
+            //There exists a user with the given credentials .Send message: Login successfull
+            $_SESSION['login'] = "<div class='success text-center'>Login Successful . Welcome $username</div>";
 
-			//read from database
-			$query = "select * from tbl_users where user_name = '$user_name' limit 1";
-			$result = mysqli_query($con, $query);
+            //Redirect to Home page (Dashboard)
+            header('location:'.SITEURL.'admin/index.php');
+            echo '<script>window.location.href="'.SITEURL.'admin/index.php"</script>';
+        }
 
-			if($result)
-			{
-				if($result && mysqli_num_rows($result) > 0)
-				{
-
-					$user_data = mysqli_fetch_assoc($result);
-					
-					if($user_data['password'] === $password)
-					{
-
-						$_SESSION['user_id'] = $user_data['user_id'];
-						header('location:'.SITEURL.'login/index.php');
-    					echo '<script>window.location.href="'.SITEURL.'login/index.php"</script>';
-						die;
-					}
-				}
-			}
-			
-			echo "wrong username or password!";
-		}else
-		{
-			echo "wrong username or password!";
-		}
-	}
+        else
+        {
+            //User not avalible. Send message: Login failed
+            $_SESSION['login'] = "<div class='error text-center'>Login Failed <br>Username or Password did not match  </div>";
+            $user = $_GET['user'];
+            $_SESSION['user'] = $username ; //To check whether the user is logged in or not and logout will unset it
+                //This username value will only be unset when the user logs out
+            //Redirect to Home page (Dashboard)
+            header('location:'.SITEURL.'admin/login.php');
+            echo '<script>window.location.href="'.SITEURL.'admin/login.php"</script>';
+        }
+    }
 
 ?>
-
-
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Login</title>
-</head>
-<body>
-
-	<style type="text/css">
-	
-	#text{
-
-		height: 25px;
-		border-radius: 5px;
-		padding: 4px;
-		border: solid thin #aaa;
-		width: 100%;
-	}
-
-	#button{
-
-		padding: 10px;
-		width: 100px;
-		color: white;
-		background-color: lightblue;
-		border: none;
-	}
-
-	#box{
-
-		background-color: grey;
-		margin: auto;
-		width: 300px;
-		padding: 20px;
-	}
-
-	</style>
-
-	<div id="box">
-		
-		<form method="post">
-			<div style="font-size: 20px;margin: 10px;color: white;">Login</div>
-
-			<input id="text" type="text" name="user_name"><br><br>
-			<input id="text" type="password" name="password"><br><br>
-
-			<input id="button" type="submit" value="Login"><br><br>
-
-			<a href="signup.php">Click to Signup</a><br><br>
-		</form>
-	</div>
-</body>
-</html>
