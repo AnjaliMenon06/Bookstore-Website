@@ -1,0 +1,139 @@
+<?php include('partials/menu.php')?>
+
+    <section class="admin-page">
+        <div class="main-content"> 
+            <div class='wrapper'>
+                <h1>Update Order</h1>
+                <br>
+                <br>
+
+                <?php
+                    //Check whether id is set or not
+                    if(isset($_GET['id']))
+                    {
+                        //Get all the details
+                        $id = $_GET['id'];
+
+                        //Get all the details based on this id
+                        $sql = "SELECT * FROM tbl_order WHERE id=$id ";
+                        //Execute the query
+                        $res = mysqli_query($conn,$sql);
+
+                        //Get the value based on query executed
+                        $count = mysqli_fetch_assoc($res);
+
+                            //Get all the details
+                            
+                        $row = mysqli_fetch_assoc($res);
+
+                        $book = $row['book'];
+                        $price = $row['price'];
+                        $qty = $row['qty'];
+                        $stat = $row['stat'];
+                        $customer_name = $row['customer_name'];
+                        $customer_contact = $row['customer_contact'];
+                        $customer_email = $row['customer_email'];
+                        $customer_address = $row['customer_address'];
+                        
+                           //Redirect to Manage Order Page
+                            //header('location:'.SITEURL.'admin/manage-order.php');
+                            //echo '<script>window.location.href="'.SITEURL.'admin/manage-order.php"</script>';
+                    
+                        
+
+
+                    }
+                    else
+                    {
+                        //Redirect to Manage Order Page
+                        header('location:'.SITEURL.'admin/manage-order.php');
+                        echo '<script>window.location.href="'.SITEURL.'admin/manage-order.php"</script>';
+                    }
+
+
+                ?>
+                <form action="" method="POST"  >
+                    <div class="tbl-30">
+                        <tr>
+                            <td>Book Name : </td>
+                            <td><input type="text" name="book" value="<?php echo $book; ?>" ></td>
+                        </tr>
+                        <br>
+                        <tr>
+                            <td>Price: </td>
+                            <td><input type="number" name="price" value="<?php echo $price; ?>" ></td>
+                        </tr>
+                        
+                        <br> 
+                        <tr>
+                            <td>Qty : </td>
+                            <td>
+                                <input type="number" name="qty" value="">
+                            </td>
+                        </tr>
+                        
+                        <br>
+
+                        <tr>
+                            <td>Status : </td>
+                            <td>
+                                <select name="stat" >
+                                    <option value="ordered">Ordered</option>
+                                    <option value="on delivery">On Delivery</option>
+                                    <option value="delivered">Delivered</option>
+                                    <option value="cancelled">Cancelled</option>
+                                </select>
+                            </td>
+                        </tr>
+                        
+                        <br>
+
+                        <tr>
+                            <td>Customer Name :  </td>
+                            <td>
+                                <input type="text" name="customer_name" value="">
+                            </td>
+                        </tr>
+                       
+                        <br>
+
+                        <tr>
+                            <td>Customer_Contact :  </td>
+                            <td>
+                                <input type="text" name="customer_contact" value="">
+                            </td>
+                        </tr>
+                        
+                        <br>
+                        
+
+                        <tr>
+                            <td>Customer email :  </td>
+                            <td>
+                                <input type="text" name="customer_email" value="">
+                            </td>
+                        </tr>
+                        
+                        <br>
+
+                        <tr>
+                            <td>Customer Address :  </td>
+                            <td>
+                                <textarea type="text" name="customer_address" cols="30" rows="5"></textarea>
+                            </td>
+                        </tr>
+                        
+                        <br>
+                        <tr>
+                            <td colspan="2">
+                                <input type="submit" name="submit" value="Update Order" class="btn-primary">
+                            </td>                            
+                        </tr>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>        
+
+
+<?php include('partials/footer.php')?>

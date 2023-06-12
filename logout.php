@@ -1,13 +1,22 @@
-<?php
+<html>
+    <head>
+        <title>Login - Bookstore Website</title>
+        <link rel="stylesheet" href="../css/admin.css">
+    </head>
 
-session_start();
+        <body>
+        <section class="admin-page">
+            <?php 
+                //Include constants.php for SITEURL
+                include('../config/constants.php');
+                // 1.Destroy the session
+                session_destroy();
 
-if(isset($_SESSION['user_id']))
-{
-	unset($_SESSION['user_id']);
+                // 2.Redirect to Login page
+                header('location:'.SITEURL.'admin/login.php');
+                echo '<script>window.location.href="'.SITEURL.'admin/login.php"</script>';
+            ?>
+        </section>    
+        </body>
 
-}
-
-header('location:'.'login.php');
-echo '<script>window.location.href="''login/login.php"</script>';
-die;
+</html>        

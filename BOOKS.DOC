@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Important to make website responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstore Website</title>
+
+    <!-- Link our CSS file -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Navbar Section Starts Here -->
+    <section class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="#" title="Logo">
+                    <img src="images/logo.jpeg" alt="Bookstore Logo" class="img-responsive">
+                </a>
+            </div>
+
+            <div class="menu text-right">
+                <ul>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="categories.html">Categories</a>
+                    </li>
+                    <li>
+                        <a href="books.html">Books</a>
+                    </li>
+                    <li>
+                        <a href="./admin/US.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+    </section>
+    <!-- Navbar Section Ends Here -->
+
+    <!-- book sEARCH Section Starts Here -->
+    <section class="book-search text-center">
+        <div class="container">
+            
+            <form action="book-search.html" method="POST">
+                <input type="search" name="search" placeholder="Find Your Favourite.." required>
+                <input type="submit" name="submit" value="Search" class="btn btn-primary">
+            </form>
+
+        </div>
+    </section>
+    <!-- book sEARCH Section Ends Here -->
+
+
+
+    <!-- book MEnu Section Starts Here -->
+    <section class="book-menu">
+        <div class="container">
+            <h2 class="text-center">Book Menu</h2>
+
+            <div class="book-menu-box">
+                <div class="book-menu-img">
+                    <img src="images/thief.jpg" alt="The Book Thief" class="img-responsive img-curve">
+                </div>
+
+                <div class="book-menu-desc">
+                    <h4>The Book Thief</h4>
+                    <p class="book-price">Rs.299</p>
+                    <p class="book-detail">
+                        "When Death tells you a story, you really have to listen"; Markus Zusak is sure to leave the reader crying 
+                    </p>
+                    <br>
+
+                    <a href="order.html" class="btn btn-primary">Order Now</a>
+                </div>
+            </div>
+
+            <div class="book-menu-box">
+                <div class="book-menu-img">
+                    <img src="images/trio.jpg" alt="The Shiva Triology" class="img-responsive img-curve">
+                </div>
+
+                <div class="book-menu-desc">
+                    <h4>The Shiva Triology</h4>
+                    <p class="book-price">Rs.1099</p>
+                    <p class="book-detail">
+                        One of the classical works by any Indian Author;
+                        Mythological, thrilling and romantic;
+                        First series of Amish Tripathi; 
+			International Bestseller;
+                        Contains-3 Books
+                    </p>
+                    <br>
+
+                    <a href="order.html" class="btn btn-primary">Order Now</a>
+                </div>
+            </div>
+
+            <div class="book-menu-box">
+                <div class="book-menu-img">
+                    <img src="images/twilight.jpg" alt="The Twilight Saga" class="img-responsive img-curve">
+                </div>
+
+                <div class="book-menu-desc">
+                    <h4>The Twilight Saga</h4>
+                    <p class="book-price">Rs.2499</p>
+                    <p class="book-detail">
+                        A nail biting Saga by Stepheny Mayor, which will take the reader to a parallel universe of love,friendship and monsters;Contains-4 Books 
+                    </p>
+                    <br>
+
+                    <a href="order.html" class="btn btn-primary">Order Now</a>
+                </div>
+            </div>
+
+            <div class="book-menu-box">
+                <div class="book-menu-img">
+                    <img src="images/girl.jpg" alt="The Girl on the Train" class="img-responsive img-curve">
+                </div>
+
+                <div class="book-menu-desc">
+                    <h4>The Girl on the Train</h4>
+                    <p class="book-price">Rs.299</p>
+                    <p class="book-detail">
+                       This girl,is no ordinary one. She's sure to leave your neves on a roller coster;
+		       One of the best thrillers of mordern day English Literature,by Paula Hawkings
+                    </p>
+                    <br>
+
+                    <a href="order.html" class="btn btn-primary">Order Now</a>
+                </div>
+            </div>
+
+            <div class="book-menu-box">
+                <div class="book-menu-img">
+                    <img src="images/ignited.jpg" alt="Ignited Minds" class="img-responsive img-curve">
+                </div>
+
+                <div class="book-menu-desc">
+                    <h4>Ignited Minds</h4>
+                    <p class="book-price">Rs.180</p>
+                    <p class="book-detail">
+                        Authored by the Missile Man of India DR.APJ Abdul Kalam, this book is sure to ignite your minds.
+                    </p>
+                    <br>
+
+                    <a href="order.html" class="btn btn-primary">Order Now</a>
+                </div>
+            </div>
+
+            <div class="book-menu-box">
+                <div class="book-menu-img">
+                    <img src="images/harry.jpg" alt="Harry Potter" class="img-responsive img-curve">
+                </div>
+
+                <div class="book-menu-desc">
+                    <h4>Harry Potter</h4>
+                    <p class="book-price">Rs.2499</p>
+                    <p class="book-detail">
+                        The series by J.K Rowling who taught a geneation to believe in magic
+			The castle of Hogwarts will be home to the readers.
+			Contains- 7 books
+                    </p>
+                    <br>
+
+                    <a href="order.html" class="btn btn-primary">Order Now</a>
+                </div>
+            </div>
+
+	  <div class="book-menu-box">
+                <div class="book-menu-img">
+                    <img src="images/magic.jpg" alt="The Magic" class="img-responsive img-curve">
+                </div>
+
+                <div class="book-menu-desc">
+                    <h4>The Magic</h4>
+                    <p class="book-price">Rs.499</p>
+                    <p class="book-detail">
+                        Second book from the authon of the Secret, Rhonda Byrne. Will leave the readers in the magical realm of Gratitute and Compassion
+                    </p>
+                    <br>
+
+                    <a href="order.html" class="btn btn-primary">Order Now</a>
+                </div>
+            </div>
+
+	  <div class="book-menu-box">
+                <div class="book-menu-img">
+                    <img src="images/splendid.jpg" alt="A Thousand Splendid Suns" class="img-responsive img-curve">
+                </div>
+
+                <div class="book-menu-desc">
+                    <h4>A Thousand Splendid Suns</h4>
+                    <p class="book-price">Rs.629</p>
+                    <p class="book-detail">
+                        This is no mere story,for Khaled Hosseni doesn't write stories. This is the life of Mariyam,Laila and Tareekh.The book is sure to leave the reader in tears of pain and love. 
+			
+                    </p>
+                    <br>
+
+                    <a href="order.html" class="btn btn-primary">Order Now</a>
+                </div>
+            </div>
+
+         
+         <div class="book-menu-box">
+                <div class="book-menu-img">
+                    <img src="images/kite.jpg" alt="The Kite Runner" class="img-responsive img-curve">
+                </div>
+
+                <div class="book-menu-desc">
+                    <h4>The Kite Runner</h4>
+                    <p class="book-price">Rs.449</p>
+                    <p class="book-detail">
+                        "For you, a thousand times over"; The reader will fall for this book too, as ensured by Khaled Hosseni 
+
+
+                    </p>
+                    <br>
+
+                    <a href="order.html" class="btn btn-primary">Order Now</a>
+                </div>
+            </div>
+          
+        <div class="book-menu-box">
+                <div class="book-menu-img">
+                    <img src="images/stars.jpg" alt="The Fault in our Stars" class="img-responsive img-curve">
+                </div>
+
+                <div class="book-menu-desc">
+                    <h4>The Fault in our Stars</h4>
+                    <p class="book-price">Rs.249</p>
+                    <p class="book-detail">
+                        "That's the thing about pain. It demands to be felt-John Green"; 
+		         A teenage romance which will pinch your heart every time you think of Hazel and Gus
+
+
+                    </p>
+                    <br>
+
+                    <a href="order.html" class="btn btn-primary">Order Now</a>
+                </div>
+            </div>
+
+
+
+            <div class="clearfix"></div>
+
+            
+
+        </div>
+
+    </section>
+    <!-- book Menu Section Ends Here -->
+
+    
+    <!-- footer Section Ends Here -->
+
+</body>
+</html>
